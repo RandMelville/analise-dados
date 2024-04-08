@@ -66,7 +66,9 @@ while True:
 
     # Importando o DataFrame para o arquivo 'dados.csv'
     df.to_csv('dados.csv', mode='a', header=not os.path.exists('dados.csv'), index=False)
-
+    
     continuar = input("Deseja continuar adicionando dados? (S/N): ")
     if continuar.upper() != 'S':
-        break
+       df = pd.read_csv('dados.csv')
+       print(df.head())
+       break
